@@ -53,16 +53,29 @@ def bubble_sort(number_array):
 
 
 def insertion_sort(number_array):
+    l = len(number_array)
+    for i in range(l-1):
+        index = i
+        while number_array[index] > number_array[index+1]:
+            number_array[index], number_array[index + 1] = number_array[index + 1], number_array[index]
+            if index == 0:
+                break
+            else:
+                index -= 1
+
+    return number_array
 
 
 
 def main():
     data = read_data('numbers.csv')
     print(data)
-    sorted_nums = selection_sort(data['series_1'])
+    sorted_nums = selection_sort(data['series_2'])
     print(sorted_nums)
     sorted_bubble_nums = bubble_sort(data['series_2'])
     print(sorted_bubble_nums)
+    sorted_ins_nums = insertion_sort(data['series_3'])
+    print(sorted_ins_nums)
     pass
 
 
